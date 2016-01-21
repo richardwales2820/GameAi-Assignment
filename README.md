@@ -18,9 +18,9 @@
 
 # To Do list: #
 
-1. Create map with walls and agents (DONE)
+1. ~~ Create map with walls and agents ~~
 
-2. Add movement to player (DONE)
+2. ~~ Add movement to player ~~
 
 3. Wall sensors
 
