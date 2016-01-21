@@ -32,8 +32,12 @@
 
 7. Paper report
 
+- - - -
+
 For help in unity, mess around with the tools and familiarize yourself with the IDE.
 
 Tutorials are available here: https://unity3d.com/learn/tutorials
 
 Documentation is here: http://docs.unity3d.com/Manual/index.html
+
+**For any comments/questions, post in the issues section**
