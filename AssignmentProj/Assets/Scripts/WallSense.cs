@@ -38,16 +38,19 @@ public class WallSense : MonoBehaviour {
 		rightRayPos.Normalize ();
 		leftRayPos.Normalize ();
 
-		/* This section will host the actual raycasting to check for object detection
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, forwardRayPos);
+		// This section will host the actual raycasting to check for object detection
+		RaycastHit2D hitForward = Physics2D.Raycast(transform.position, transform.position + 
+																rayDistance * forwardRayPos);
 
-		if (hit.collider != null) {
-			float distance = Mathf.Abs(hit.point.y - transform.position.y);
+		if (hitForward.collider != null) {
+			float distance = Mathf.Abs(hitForward.point.y - transform.position.y);
 			float heightError = floatHeight - distance;
 			float force = liftForce * heightError - rb2D.velocity.y * damping;
 			rb2D.AddForce(Vector3.up * force);
+
+			Debug.Log ("Hit");
 		}
-		*/
+
 
 		//Draw lines that extend from the player in their respective directions with a set length
 		Debug.DrawLine (transform.position, transform.position + rayDistance * forwardRayPos);
