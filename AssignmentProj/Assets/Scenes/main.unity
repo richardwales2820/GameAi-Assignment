@@ -457,6 +457,7 @@ GameObject:
   - 4: {fileID: 1870138922}
   - 212: {fileID: 1870138921}
   - 50: {fileID: 1870138923}
+  - 123: {fileID: 1870138924}
   m_Layer: 0
   m_Name: Enemy Agent
   m_TagString: Untagged
@@ -523,6 +524,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!123 &1870138924
+LensFlare:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870138920}
+  m_Enabled: 1
+  m_Flare: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Brightness: 1
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
 --- !u!1 &1979479323
 GameObject:
   m_ObjectHideFlags: 0
