@@ -38,6 +38,7 @@ public class WallSense : MonoBehaviour {
 		rightRayPos.Normalize ();
 		leftRayPos.Normalize ();
 
+        /*
 		// This section will host the actual raycasting to check for object detection
 		RaycastHit2D hitForward = Physics2D.Raycast(transform.position, transform.position + 
 																rayDistance * forwardRayPos);
@@ -50,10 +51,21 @@ public class WallSense : MonoBehaviour {
 
 			Debug.Log ("Hit");
 		}
+        */
 
+        object[] obj = GameObject.FindSceneObjectsOfType(typeof(GameObject));
 
-		//Draw lines that extend from the player in their respective directions with a set length
-		Debug.DrawLine (transform.position, transform.position + rayDistance * forwardRayPos);
+        foreach (object o in obj) {
+
+            GameObject g = (GameObject)o;
+            //Debug.Log(g.name);
+
+            //Mesh.bounds
+            
+        }
+
+        //Draw lines that extend from the player in their respective directions with a set length
+        Debug.DrawLine (transform.position, transform.position + rayDistance * forwardRayPos);
 		Debug.DrawLine (transform.position, transform.position + rayDistance * rightRayPos);
 		Debug.DrawLine (transform.position, transform.position + rayDistance * leftRayPos);
 	}
