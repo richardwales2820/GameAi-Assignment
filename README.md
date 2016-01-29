@@ -22,7 +22,7 @@
 
 2. ~~Add movement to player~~
 
-3. Wall sensors
+3. Wall sensors **(In progress: Richie)**
 
 4. Adjacent Agent sensor
 
