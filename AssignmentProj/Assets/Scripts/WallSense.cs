@@ -11,7 +11,7 @@ public class WallSense : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		rb2D = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -44,11 +44,12 @@ public class WallSense : MonoBehaviour {
 
 		if (hitForward.collider != null) {
 			float distance = Mathf.Abs(hitForward.point.y - transform.position.y);
-			float heightError = floatHeight - distance;
-			float force = liftForce * heightError - rb2D.velocity.y * damping;
-			rb2D.AddForce(Vector3.up * force);
+			//float heightError = floatHeight - distance;
+			//float force = liftForce * heightError - rb2D.velocity.y * damping;
+			//rb2D.AddForce(Vector3.up * force);
 
-			Debug.Log ("Hit");
+			if (distance < 5)
+				Debug.Log ("Hit");
 		}
 
 
@@ -56,5 +57,7 @@ public class WallSense : MonoBehaviour {
 		Debug.DrawLine (transform.position, transform.position + rayDistance * forwardRayPos);
 		Debug.DrawLine (transform.position, transform.position + rayDistance * rightRayPos);
 		Debug.DrawLine (transform.position, transform.position + rayDistance * leftRayPos);
+
+		Debug.ClearDeveloperConsole ();
 	}
 }
