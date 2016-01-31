@@ -8,9 +8,9 @@ public class Raycasting : MonoBehaviour {
 	
 	}
 
-    public float x = gameObject.transform.position.x;
-    public float y = gameObject.transform.position.y;
-    public float angle = gameObject.eulerAngles.z;
+    //public float x = gameObject.transform.position.x;
+    //public float y = gameObject.transform.position.y;
+    //public float angle = gameObject.eulerAngles.z;
 	
 	// Update is called once per frame
 	void Update () {
