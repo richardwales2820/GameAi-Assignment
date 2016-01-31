@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 464384905}
   - 212: {fileID: 464384904}
+  - 61: {fileID: 464384906}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -143,6 +144,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1688368342}
   m_RootOrder: 0
+--- !u!61 &464384906
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 464384903}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 0.1}
 --- !u!1 &781925744
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +196,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 979244114}
   - 212: {fileID: 979244113}
+  - 61: {fileID: 979244115}
   m_Layer: 0
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -230,6 +246,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1688368342}
   m_RootOrder: 1
+--- !u!61 &979244115
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 979244112}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.7999999, y: 0.09999999}
 --- !u!1 &1441534018
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,8 +486,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1870138922}
   - 212: {fileID: 1870138921}
-  - 50: {fileID: 1870138923}
-  - 123: {fileID: 1870138924}
+  - 61: {fileID: 1870138923}
   m_Layer: 0
   m_Name: Enemy Agent
   m_TagString: Untagged
@@ -507,38 +536,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1441534019}
   m_RootOrder: 0
---- !u!50 &1870138923
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870138920}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!123 &1870138924
-LensFlare:
+--- !u!61 &1870138923
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870138920}
   m_Enabled: 1
-  m_Flare: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_Brightness: 1
-  m_FadeSpeed: 3
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 6
-  m_Directional: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
 --- !u!1 &1979479323
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,8 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c126e76e74f45f0a8121b911ed1e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatHeight: 0
-  liftForce: 0
-  damping: 0
-  rb2D: {fileID: 0}
   rayDistance: 5
+  forwardLineColor: {r: 1, g: 1, b: 1, a: 1}
+  rightLineColor: {r: 1, g: 1, b: 1, a: 1}
+  leftLineColor: {r: 1, g: 1, b: 1, a: 1}
