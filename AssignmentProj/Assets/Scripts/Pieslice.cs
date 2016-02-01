@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Pieslice : MonoBehaviour {
 
 	public Text sliceText;
+	public TextMesh pieNum;
 	int agents = 0;
 	//private bool agent1In, agent2In;
 
@@ -29,5 +30,12 @@ public class Pieslice : MonoBehaviour {
 
 		if (sliceText != null)
 			sliceText.text = sliceText.tag + " level " + agents;
+
+		if (pieNum != null) {
+			if (agents > 0)
+				pieNum.color = new Color (255f, 0f, 0f, 1f);
+			else
+				pieNum.color = new Color (255f, 255f, 255f, 1f);
+		}
 	}
 }
