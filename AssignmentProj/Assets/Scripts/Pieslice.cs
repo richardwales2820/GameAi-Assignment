@@ -27,6 +27,7 @@ public class Pieslice : MonoBehaviour {
 	void FixedUpdate () {
 		Debug.Log (agents);
 
-		sliceText.text = sliceText.tag + " level " + agents;
+		if (sliceText != null)
+			sliceText.text = sliceText.tag + " level " + agents;
 	}
 }
