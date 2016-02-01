@@ -10,6 +10,11 @@ public class AdjacentSense : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		
+		Collider2D[] collidersInRange = Physics2D.OverlapCircleAll(transform.position, 3.2f);
+
+		for (int i = 0; i < collidersInRange.Length; i++) {
+			if (collidersInRange[i].attachedRigidbody != null)
+				Debug.Log (collidersInRange [i].attachedRigidbody);
+		}
 	}
 }
