@@ -22,9 +22,9 @@
 
 2. ~~Add movement to player~~
 
-3. Wall sensors **(In progress: Ty)**
+3. Wall sensors **(In progress: Richie)**
 
-4. ~~Adjacent Agent sensor~~
+4. Adjacent Agent sensor
 
 5. Pie-slice sensor
 
