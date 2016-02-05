@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerMove : MonoBehaviour {
 
     public float playerSpeed = 1;
     public float playerRotationSpeed = 45;
+	public Text posText, headingText;
 
 	void Start () {
 	
@@ -41,5 +43,13 @@ public class PlayerMove : MonoBehaviour {
             transform.position = new Vector3(transform.position.x - playerSpeed * -Mathf.Sin(Mathf.Deg2Rad * currentAngle),
                 transform.position.y - playerSpeed * Mathf.Cos(Mathf.Deg2Rad * currentAngle), 0);
         }
+
+		//Debug.Log ("Player heading: " + currentAngle);
+
+		if (posText != null)
+			posText.text = "World Position: (" + (int)transform.position.x + ", " +
+				(int)transform.position.y + ")";
+		if (headingText != null)
+			headingText.text = "Heading: " + (int)currentAngle;
     }
 }
