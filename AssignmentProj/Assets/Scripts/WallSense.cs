@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class WallSense : MonoBehaviour {
@@ -8,6 +9,7 @@ public class WallSense : MonoBehaviour {
 
     // Color of GUI rays (turns a different color when it collides with a collider)
     public Color forwardLineColor, rightLineColor, leftLineColor;
+    public Text forwardDistText, rightDistText, leftDistText;
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +23,12 @@ public class WallSense : MonoBehaviour {
 
 	void FixedUpdate() {
 
-		//Gets the angle of the player
-		float currentAngle = transform.eulerAngles.z;
+        float forwardDist = rayDistance + 1;
+        float rightDist = rayDistance + 1;
+        float leftDist = rayDistance + 1;
+
+        //Gets the angle of the player
+        float currentAngle = transform.eulerAngles.z;
 
 		//Initialize vector positions of the rays
 		//Uses the same trig as the movement code to cast ray in front of player
@@ -42,14 +48,48 @@ public class WallSense : MonoBehaviour {
         leftLineColor = Color.white;
 
         //Check if the rays are colliding with an object; if they are, draw them magenta
-        if (Physics2D.Raycast(transform.position, forwardRayPos, rayDistance).collider != null) forwardLineColor = Color.magenta;
-        if (Physics2D.Raycast(transform.position, rightRayPos, rayDistance).collider != null) rightLineColor = Color.magenta;
-        if (Physics2D.Raycast(transform.position, leftRayPos, rayDistance).collider != null) leftLineColor = Color.magenta;
+        Collider2D forwardCollide = Physics2D.Raycast(transform.position, forwardRayPos, rayDistance).collider;
+        Collider2D rightCollide = Physics2D.Raycast(transform.position, rightRayPos, rayDistance).collider;
+        Collider2D leftCollide = Physics2D.Raycast(transform.position, leftRayPos, rayDistance).collider;
+
+        if (forwardCollide != null) {
+            forwardLineColor = Color.magenta;
+            forwardDist = Vector3.Distance(transform.position, forwardCollide.transform.position);
+
+        }
+
+        if (rightCollide != null) {
+            rightLineColor = Color.magenta;
+            rightDist = Vector3.Distance(transform.position, rightCollide.transform.position);
+        }
+
+        if (leftCollide != null) {
+            leftLineColor = Color.magenta;
+            leftDist = Vector3.Distance(transform.position, leftCollide.transform.position);
+        }
 
         //Draw lines that extend from the player in their respective directions with a set length
         Debug.DrawLine(transform.position, transform.position + rayDistance * forwardRayPos, forwardLineColor);
 		Debug.DrawLine(transform.position, transform.position + rayDistance * rightRayPos, rightLineColor);
 		Debug.DrawLine(transform.position, transform.position + rayDistance * leftRayPos, leftLineColor);
+
+        if (forwardDist <= rayDistance) {
+            if (forwardDistText != null) forwardDistText.text = "Forward Sensor: " + forwardDist.ToString("F2");
+        } else {
+            if (forwardDistText != null) forwardDistText.text = "";
+        }
+
+        if (rightDist <= rayDistance) {
+            if (rightDistText != null) rightDistText.text = "Right Sensor: " + rightDist.ToString("F2");
+        } else {
+            if (rightDistText != null) rightDistText.text = "";
+        }
+
+        if (leftDist <= rayDistance) {
+            if (leftDistText != null) leftDistText.text = "Left Sensor: " + leftDist.ToString("F2");
+        } else {
+            if (leftDistText != null) leftDistText.text = "";
+        }
 
         Debug.ClearDeveloperConsole();
 	}
