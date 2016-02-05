@@ -23,9 +23,9 @@ public class WallSense : MonoBehaviour {
 
 	void FixedUpdate() {
 
-        float forwardDist = rayDistance + 1;
-        float rightDist = rayDistance + 1;
-        float leftDist = rayDistance + 1;
+        float forwardDist = -1;
+        float rightDist = -1;
+        float leftDist = -1;
 
         //Gets the angle of the player
         float currentAngle = transform.eulerAngles.z;
@@ -73,19 +73,19 @@ public class WallSense : MonoBehaviour {
 		Debug.DrawLine(transform.position, transform.position + rayDistance * rightRayPos, rightLineColor);
 		Debug.DrawLine(transform.position, transform.position + rayDistance * leftRayPos, leftLineColor);
 
-        if (forwardDist <= rayDistance) {
+        if (forwardDist != -1) {
             if (forwardDistText != null) forwardDistText.text = "Forward Sensor: " + forwardDist.ToString("F2");
         } else {
             if (forwardDistText != null) forwardDistText.text = "";
         }
 
-        if (rightDist <= rayDistance) {
+        if (rightDist != -1) {
             if (rightDistText != null) rightDistText.text = "Right Sensor: " + rightDist.ToString("F2");
         } else {
             if (rightDistText != null) rightDistText.text = "";
         }
 
-        if (leftDist <= rayDistance) {
+        if (leftDist != -1) {
             if (leftDistText != null) leftDistText.text = "Left Sensor: " + leftDist.ToString("F2");
         } else {
             if (leftDistText != null) leftDistText.text = "";
