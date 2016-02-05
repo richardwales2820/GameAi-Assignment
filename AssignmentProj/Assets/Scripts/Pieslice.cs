@@ -26,7 +26,6 @@ public class Pieslice : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		Debug.Log (agents);
 
 		if (sliceText != null)
 			sliceText.text = sliceText.tag + " level " + agents;
