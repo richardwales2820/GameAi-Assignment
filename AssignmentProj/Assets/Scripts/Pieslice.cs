@@ -14,11 +14,13 @@ public class Pieslice : MonoBehaviour {
 		agents = 0;
 	}
 
+	//Agent enters slice, agents increments
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		agents++;
 	}
 
+	//Agent leaves slice, agents decrements
 	void OnTriggerExit2D(Collider2D collider)
 	{
 		agents--;
@@ -26,10 +28,12 @@ public class Pieslice : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-
+		//Null checks satisfy unity's weird errors
+		//text.tag is there to allow for easy re-use with other slices
 		if (sliceText != null)
-			sliceText.text = sliceText.tag + " level " + agents;
+			sliceText.text = sliceText.tag + " level " + agents; //Changes text to be the amount of agents in slice
 
+		//If agents are in slice, changes color of the slice number labels to red
 		if (pieNum != null) {
 			if (agents > 0)
 				pieNum.color = new Color (255f, 0f, 0f, 1f);
