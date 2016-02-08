@@ -4,6 +4,7 @@ using System.Collections;
 
 public class PlayerMove : MonoBehaviour {
 
+    // Initialize player speed, rotational speed and variables to print a player's location and heading to the screen
     public float playerSpeed = 1;
     public float playerRotationSpeed = 45;
 	public Text posText, headingText;
@@ -22,19 +23,19 @@ public class PlayerMove : MonoBehaviour {
         if (Input.GetKey(KeyCode.W))
         {
             transform.position = new Vector3(transform.position.x + playerSpeed * -Mathf.Sin(Mathf.Deg2Rad * currentAngle), 
-                transform.position.y + playerSpeed * Mathf.Cos(Mathf.Deg2Rad * currentAngle), 0);
+                transform.position.y + playerSpeed * Mathf.Cos(Mathf.Deg2Rad * currentAngle), 0);  // Set the new position vector using trig
         }
 
 		//While A is pressed, the player rotates to the left with a specified speed
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0, 0, playerRotationSpeed);
+            transform.Rotate(0, 0, playerRotationSpeed);  // Rotate around the center of the player at the specified speed counterclockwise
         }
 
 		//While D is pressed, rotate to the right
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0, 0, -playerRotationSpeed);
+            transform.Rotate(0, 0, -playerRotationSpeed);  // Rotate around the center of the player at the specified speed clockwise
         }
 
 		//Same as the "w" key code but with opposite directions
@@ -46,10 +47,11 @@ public class PlayerMove : MonoBehaviour {
 
 		//Debug.Log ("Player heading: " + currentAngle);
 
+        // Unity will raise errors without this null check
 		if (posText != null)
 			posText.text = "World Position: (" + (int)transform.position.x + ", " +
-				(int)transform.position.y + ")";
+				(int)transform.position.y + ")";  // print player's current location
 		if (headingText != null)
-			headingText.text = "Heading: " + (int)currentAngle;
+			headingText.text = "Heading: " + (int)currentAngle;  // print player's current heading
     }
 }

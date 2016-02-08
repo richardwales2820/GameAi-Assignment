@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Pieslice : MonoBehaviour {
 
+    // Initialize Pie Slice Sensor attributes variables
 	public Text sliceText;
 	public TextMesh pieNum;
 	int agents = 0;

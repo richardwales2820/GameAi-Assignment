@@ -4,9 +4,11 @@ using System.Collections;
 
 public class AdjacentSense : MonoBehaviour {
 
+    // Initialize variables for agents of interest
 	public Rigidbody2D agent1, agent2;
 	public Text agent1Details, agent2Details;
 	bool agent1In, agent2In;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -18,15 +20,16 @@ public class AdjacentSense : MonoBehaviour {
 		//Gets objects within range of Adj Agent Sensor
 		Collider2D[] collidersInRange = Physics2D.OverlapCircleAll(transform.position, 3.2f);
 
+        // Loop through colliders in range of the player
 		for (int i = 0; i < collidersInRange.Length; i++) {
-			if (collidersInRange[i].attachedRigidbody != null)
+			if (collidersInRange[i].attachedRigidbody != null)  // Check if this is a rigid body
 			{
 				//Sets bool values if agent 1 or 2 was detected
 				if (collidersInRange [i].attachedRigidbody == agent1)
-					agent1In = true;
+					agent1In = true;  // Agent 1 is within the adjacent agent sensor
 
 				if (collidersInRange [i].attachedRigidbody == agent2)
-					agent2In = true;
+					agent2In = true;  // Agent 2 is within the adjacent agent sensor
 			}
 		}
 

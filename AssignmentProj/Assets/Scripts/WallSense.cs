@@ -23,6 +23,7 @@ public class WallSense : MonoBehaviour {
 
 	void FixedUpdate() {
 
+        // Initialize forward, left and right distances to a nullified number
         float forwardDist = -1;
         float rightDist = -1;
         float leftDist = -1;
@@ -55,20 +56,23 @@ public class WallSense : MonoBehaviour {
 		Collider2D rightCollide = Physics2D.Raycast(transform.position, rightRayPos, rayDistance, layerMask).collider;
 		Collider2D leftCollide = Physics2D.Raycast(transform.position, leftRayPos, rayDistance, layerMask).collider;
 
+        // If there is a collision with the forward wall sensor...
         if (forwardCollide != null) {
-            forwardLineColor = Color.magenta;
-            forwardDist = Vector3.Distance(transform.position, forwardCollide.transform.position);
+            forwardLineColor = Color.magenta;  // This line will be drawn magenta
+            forwardDist = Vector3.Distance(transform.position, forwardCollide.transform.position);  // Get the distance between the collider and the player
 
         }
 
+        // If there is a collision with the right wall sensor...
         if (rightCollide != null) {
-            rightLineColor = Color.magenta;
-            rightDist = Vector3.Distance(transform.position, rightCollide.transform.position);
+            rightLineColor = Color.magenta;  // This line will be drawn magenta
+            rightDist = Vector3.Distance(transform.position, rightCollide.transform.position);  // Get the distance between the collider and the player
         }
 
+        // If there is a collision with the left wall sensor...
         if (leftCollide != null) {
-            leftLineColor = Color.magenta;
-            leftDist = Vector3.Distance(transform.position, leftCollide.transform.position);
+            leftLineColor = Color.magenta;  // This line will be drawn magenta
+            leftDist = Vector3.Distance(transform.position, leftCollide.transform.position);  // Get the distance between the collider and the player
         }
 
         //Draw lines that extend from the player in their respective directions with a set length
@@ -76,24 +80,28 @@ public class WallSense : MonoBehaviour {
 		Debug.DrawLine(transform.position, transform.position + rayDistance * rightRayPos, rightLineColor);
 		Debug.DrawLine(transform.position, transform.position + rayDistance * leftRayPos, leftLineColor);
 
+        // If the forward distance is not nullified...
         if (forwardDist != -1) {
-            if (forwardDistText != null) forwardDistText.text = "Forward Sensor: " + forwardDist.ToString("F2");
-        } else {
-            if (forwardDistText != null) forwardDistText.text = "";
+            if (forwardDistText != null) forwardDistText.text = "Forward Sensor: " + forwardDist.ToString("F2");  // Print the distance to the collider
+        } else {  // Otherwise...
+            if (forwardDistText != null) forwardDistText.text = "";  // Nullify the string
         }
 
+        // If the right distance is not nullified...
         if (rightDist != -1) {
-            if (rightDistText != null) rightDistText.text = "Right Sensor: " + rightDist.ToString("F2");
-        } else {
-            if (rightDistText != null) rightDistText.text = "";
+            if (rightDistText != null) rightDistText.text = "Right Sensor: " + rightDist.ToString("F2");  // Print the distance to the collider
+        } else {  // Otherwise...
+            if (rightDistText != null) rightDistText.text = "";  // Nullify the string
         }
 
+        // If the left distance is not nullified...
         if (leftDist != -1) {
-            if (leftDistText != null) leftDistText.text = "Left Sensor: " + leftDist.ToString("F2");
-        } else {
-            if (leftDistText != null) leftDistText.text = "";
+            if (leftDistText != null) leftDistText.text = "Left Sensor: " + leftDist.ToString("F2");  // Print the distance to the collider
+        } else {  // Otherwise...
+            if (leftDistText != null) leftDistText.text = "";  // Nullify the string
         }
 
+        // Clear the console
         Debug.ClearDeveloperConsole();
 	}
 }
