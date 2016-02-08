@@ -47,10 +47,13 @@ public class WallSense : MonoBehaviour {
         rightLineColor = Color.white;
         leftLineColor = Color.white;
 
+		//Raycast will only detect layer 8, walls
+		LayerMask layerMask = 1 << 8;
+
         //Check if the rays are colliding with an object; if they are, draw them magenta
-        Collider2D forwardCollide = Physics2D.Raycast(transform.position, forwardRayPos, rayDistance).collider;
-        Collider2D rightCollide = Physics2D.Raycast(transform.position, rightRayPos, rayDistance).collider;
-        Collider2D leftCollide = Physics2D.Raycast(transform.position, leftRayPos, rayDistance).collider;
+		Collider2D forwardCollide = Physics2D.Raycast(transform.position, forwardRayPos, rayDistance, layerMask).collider;
+		Collider2D rightCollide = Physics2D.Raycast(transform.position, rightRayPos, rayDistance, layerMask).collider;
+		Collider2D leftCollide = Physics2D.Raycast(transform.position, leftRayPos, rayDistance, layerMask).collider;
 
         if (forwardCollide != null) {
             forwardLineColor = Color.magenta;

@@ -524,7 +524,7 @@ GameObject:
   - 4: {fileID: 464384905}
   - 212: {fileID: 464384904}
   - 61: {fileID: 464384906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1166,7 +1166,7 @@ GameObject:
   - 4: {fileID: 979244114}
   - 212: {fileID: 979244113}
   - 61: {fileID: 979244115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1915,7 +1915,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1688368342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
